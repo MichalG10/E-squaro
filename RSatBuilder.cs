@@ -41,7 +41,7 @@ namespace E_squaro
             InputFilename = filename + ".cnf";
         }
 
-        public void GenerateInput(List<Cell> cells)
+        public bool GenerateInput(List<Cell> cells)
         {
             String RuleStream = "";
             foreach(Cell cell in cells)
@@ -54,16 +54,16 @@ namespace E_squaro
             CreateHeader(NumberOfVariables, NumberOfClauses);
 
             RSatInput += RuleStream;
-            Console.WriteLine(RSatInput);
             SaveInput();
+
+            return true;
         }
 
-        public void CreateHeader(int variables, int clauses)
+        private void CreateHeader(int variables, int clauses)
         {
             RSatInput += ("c " + InputFilename + "\n");
             RSatInput += "c\n";
             RSatInput += "p cnf " + variables.ToString() + " " + clauses.ToString() + "\n";
-            Console.WriteLine(RSatInput);
         }
 
         public void RunRSatSolver()
@@ -80,12 +80,28 @@ namespace E_squaro
             RSatSolver.Start();
 
             RSatOutput = RSatSolver.StandardOutput.ReadToEnd();
-            Console.WriteLine(RSatOutput);
         }
 
-        public void InterpretOutput()
+        public List<string> GetInterpretedOutput()
         {
-            // TODO
+            string RSatOutputLine = RSatOutput.Split(new[] { Environment.NewLine }, StringSplitOptions.RemoveEmptyEntries)[1];
+
+            /* Return null when RunRSatSolver have not been used */
+            if (RSatOutput.Length <= 1)
+                return null;
+
+            Regex MatchResult = new Regex("(UN)?SATISFIABLE");
+            var match = MatchResult.Matches(RSatOutput).Cast<Match>().FirstOrDefault();
+
+            /* Problem is unsatisfiable, any point match solution */
+            if (match.Value == "UNSATISFIABLE" || match == null)
+                return null;
+
+            Regex regex = new Regex(@"(-)?[1-9][0-9]*");
+            var TruePoints = regex.Matches(RSatOutputLine).Cast<Match>().Select(m => m.Value).Distinct().ToList();
+            TruePoints.RemoveAll(o => o.Contains("-"));
+
+            return TruePoints;
         }
 
         public void SaveOutput()
