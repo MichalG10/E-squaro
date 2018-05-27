@@ -578,9 +578,11 @@ namespace E_squaro
             if (stworzono_tablice)
             {
                 do_esqaro();
-                E_squaro.CellType[][] Tablica_CellType; Zwroc_Tablice_CellType(szerokosc_esqaro);
-
-
+                E_squaro.CellType[][] Tablica_CellType = Zwroc_Tablice_CellType(szerokosc_esqaro);
+                ESquarMatrix ESM = new ESquarMatrix(szerokosc_esqaro,szerokosc_esqaro);
+                for (int i = 0; i < szerokosc_esqaro; i++)
+                    for (int j = 0; j < szerokosc_esqaro; j++)
+                        ESM.AddCell(Tablica_CellType[i][j], i, j);
 
 
 
