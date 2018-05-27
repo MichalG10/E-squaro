@@ -14,12 +14,12 @@ namespace E_squaro
         DOWN = 3
     }
 
-    class ESquarMatrix
+    public class ESquarMatrix
     {
         private List<Cell> cells;
 
-        private int cols;
-        private int rows;
+        public int cols;
+        public int rows;
 
         private int NodeCounter;
 
@@ -58,7 +58,7 @@ namespace E_squaro
             return 0;
         }
 
-        private Cell GetCell(int col, int row)
+        public Cell GetCell(int col, int row)
         {
             return cells.Where(c => c.column == col).Where(c => c.row == row).SingleOrDefault();
         }
