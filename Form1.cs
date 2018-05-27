@@ -569,6 +569,13 @@ namespace E_squaro
             return tablica;
         }
         
+        void Z_Listy_Bool(List<bool> lista)
+        {
+            for (int i = 0; i < szerokosc_esqaro + 1; i++)
+                for (int j = 0; j < szerokosc_esqaro + 1; j++)
+                    matryca_esqaro_Node[i][j] = lista[szerokosc_esqaro*i+j];
+        }
+        
         //------------------------------------------------------------------------------------------------------------------------------------------
         //-------------------------------------------------------------Przycisk Działania-----------------------------------------------------------
         //------------------------------------------------------------------------------------------------------------------------------------------
@@ -580,13 +587,20 @@ namespace E_squaro
                 do_esqaro();
                 E_squaro.CellType[][] Tablica_CellType = Zwroc_Tablice_CellType(szerokosc_esqaro);
                 ESquarMatrix ESM = new ESquarMatrix(szerokosc_esqaro,szerokosc_esqaro);
+                RSatBuilder rsatBuilder = new RSatBuilder();
                 for (int i = 0; i < szerokosc_esqaro; i++)
                     for (int j = 0; j < szerokosc_esqaro; j++)
                         ESM.AddCell(Tablica_CellType[i][j], i, j);
 
+                rsatBuilder.GenerateInput(ESM.GetCellsList());
 
+                rsatBuilder.RunRSatSolver();
 
+                var wynik = rsatBuilder.GetInterpretedOutput();
 
+                OutputConverter OC = new OutputConverter(ESM, wynik);
+
+                Z_Listy_Bool(OC.Convert());
                 if (stworzono_esqaro)
                     Z_esqaro();
             }
