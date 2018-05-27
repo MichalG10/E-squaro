@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -23,9 +23,7 @@ namespace E_squaro
         private static List<List<int[]>> matryca_esqaro = new List<List<int[]>>();
         private static List<List<bool>> matryca_esqaro_Node = new List<List<bool>>();
         private static int szerokosc_esqaro = 1;
-        private static int wysokosc_esqaro = 1;
         private static int szerokosc_tablicy = 1;
-        private static int wysokosc_tablicy = 1;
         private static bool stworzono_tablice = false;
         private static bool stworzono_esqaro = false;
         private void numericUpDown1_ValueChanged(object sender, EventArgs e)
@@ -40,11 +38,10 @@ namespace E_squaro
             matryca_liczb.Clear();
             matryca_polonczen.Clear();
             int liczba_kolumn = (int)numericUpDown7.Value;
-            int liczba_wierszy = (int)numericUpDown8.Value;
             for (int i = 0; i < liczba_kolumn; i++)
             {
                 matryca_liczb.Add(new List<int>());
-                for (int j = 0; j < liczba_wierszy; j++)
+                for (int j = 0; j < liczba_kolumn; j++)
                 {
                     matryca_liczb[i].Add(-1);
                 }
@@ -52,13 +49,12 @@ namespace E_squaro
             for (int i = 0; i < liczba_kolumn * 2 + 1; i++)
             {
                 matryca_polonczen.Add(new List<bool>());
-                for (int j = 0; j < liczba_wierszy * 2 + 1; j++)
+                for (int j = 0; j < liczba_kolumn * 2 + 1; j++)
                 {
                     matryca_polonczen[i].Add(false);
                 }
             }
             szerokosc_tablicy = liczba_kolumn;
-            wysokosc_tablicy = liczba_wierszy;
             stworzono_tablice = true;
         }
         private void tworz_matryce_esqaro()
@@ -66,11 +62,10 @@ namespace E_squaro
             matryca_esqaro.Clear();
             matryca_esqaro_Node.Clear();
             int liczba_kolumn = (int)numericUpDown1.Value;
-            int liczba_wierszy = (int)numericUpDown2.Value;
             for (int i = 0; i < liczba_kolumn; i++)
             {
                 matryca_esqaro.Add(new List<int[]>());
-                for (int j = 0; j < liczba_wierszy; j++)
+                for (int j = 0; j < liczba_kolumn; j++)
                 {
                     matryca_esqaro[i].Add(new int[2]);
                     matryca_esqaro[i][j][0] = 0;
@@ -80,19 +75,17 @@ namespace E_squaro
             for (int i = 0; i < liczba_kolumn+1; i++)
             {
                 matryca_esqaro_Node.Add(new List<bool>());
-                for (int j = 0; j < liczba_wierszy+1; j++)
+                for (int j = 0; j < liczba_kolumn + 1; j++)
                 {
                     matryca_esqaro_Node[i].Add(false);
                 }
             }
             szerokosc_esqaro = liczba_kolumn;
-            wysokosc_esqaro = liczba_wierszy;
             stworzono_esqaro = true;
         }
         private void do_esqaro()
         {
             numericUpDown1.Value = szerokosc_tablicy * 2 + 1 + 2;
-            numericUpDown2.Value = wysokosc_tablicy * 2 + 1 + 2;
             tworz_matryce_esqaro();
             for (int i = 0; i < matryca_liczb.Count + 2; i++)
             {
@@ -136,10 +129,9 @@ namespace E_squaro
         }
         private void Z_esqaro()
         {
-            if(szerokosc_esqaro>=5&& wysokosc_esqaro >= 5 && szerokosc_esqaro%2==1 && wysokosc_esqaro%2==1)
+            if(szerokosc_esqaro>=5&& szerokosc_esqaro%2==1)
             {
                 numericUpDown7.Value = (szerokosc_esqaro - 2) / 2;
-                numericUpDown8.Value = (wysokosc_esqaro - 2) / 2;
                 tworz_matryce_liczb();
                 for (int i = 0; i < matryca_liczb.Count; i++)
                 {
@@ -311,9 +303,9 @@ namespace E_squaro
 
         private void numericUpDown3_ValueChanged(object sender, EventArgs e)
         {
-            if (numericUpDown3.Value > wysokosc_esqaro)
+            if (numericUpDown3.Value > szerokosc_esqaro)
             {
-                numericUpDown3.Value = wysokosc_esqaro;
+                numericUpDown3.Value = szerokosc_esqaro;
             }
             rysuj_matryce();
         }
@@ -388,9 +380,9 @@ namespace E_squaro
 
         private void numericUpDown10_ValueChanged(object sender, EventArgs e)
         {
-            if (numericUpDown10.Value > wysokosc_tablicy)
+            if (numericUpDown10.Value > szerokosc_tablicy)
             {
-                numericUpDown10.Value = wysokosc_tablicy;
+                numericUpDown10.Value = szerokosc_tablicy;
             }
             rysuj_matryce();
         }
