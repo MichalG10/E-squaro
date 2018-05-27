@@ -624,12 +624,17 @@ namespace E_squaro
                 rsatBuilder.RunRSatSolver();
 
                 var wynik = rsatBuilder.GetInterpretedOutput();
+                
+                if(wynik!=null)
+                {
+                    rsatBuilder.SaveOutput();
 
-                OutputConverter OC = new OutputConverter(ESM, wynik);
+                    OutputConverter OC = new OutputConverter(ESM, wynik);
 
-                Z_Listy_Bool(OC.Convert());
-                if (stworzono_esqaro)
+                    Z_Listy_Bool(OC.Convert());
+
                     Z_esqaro();
+                }
             }
             rysuj_matryce();
         }
