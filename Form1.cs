@@ -568,10 +568,27 @@ namespace E_squaro
             }
             return tablica;
         }
+        
+        //------------------------------------------------------------------------------------------------------------------------------------------
+        //-------------------------------------------------------------Przycisk Działania-----------------------------------------------------------
+        //------------------------------------------------------------------------------------------------------------------------------------------
 
         private void button14_Click(object sender, EventArgs e)
         {
+            if (stworzono_tablice)
+            {
+                do_esqaro();
+                E_squaro.CellType[][] Tablica_CellType; Zwroc_Tablice_CellType(szerokosc_esqaro);
 
+
+
+
+
+
+                if (stworzono_esqaro)
+                    Z_esqaro();
+            }
+            rysuj_matryce();
         }
     }
 }
