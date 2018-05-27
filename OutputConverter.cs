@@ -9,7 +9,7 @@ namespace E_squaro
     public class OutputConverter
     {
         public ESquarMatrix es;
-        public List<int> list;
+        public List<int> list = new List<int>();
 
         public OutputConverter(ESquarMatrix ess, List<String> lis_str) {
             es = ess;
