@@ -8,3 +8,13 @@ c:\users\michał\source\repos\E-squaro\E-squaro\obj\Debug\E-squaro.csproj.CoreCo
 c:\users\michał\source\repos\E-squaro\E-squaro\obj\Debug\E-squaro.exe
 c:\users\michał\source\repos\E-squaro\E-squaro\obj\Debug\E-squaro.pdb
 c:\users\michał\source\repos\E-squaro\E-squaro\obj\Debug\E_squaro.Form1.resources
+C:\Users\Michał\Documents\GitHub\E-squaro\E-squaro\bin\Debug\E-squaro.exe.config
+C:\Users\Michał\Documents\GitHub\E-squaro\E-squaro\bin\Debug\E-squaro.exe
+C:\Users\Michał\Documents\GitHub\E-squaro\E-squaro\bin\Debug\E-squaro.pdb
+C:\Users\Michał\Documents\GitHub\E-squaro\E-squaro\obj\Debug\E-squaro.csprojResolveAssemblyReference.cache
+C:\Users\Michał\Documents\GitHub\E-squaro\E-squaro\obj\Debug\E_squaro.Form1.resources
+C:\Users\Michał\Documents\GitHub\E-squaro\E-squaro\obj\Debug\E_squaro.Properties.Resources.resources
+C:\Users\Michał\Documents\GitHub\E-squaro\E-squaro\obj\Debug\E-squaro.csproj.GenerateResource.cache
+C:\Users\Michał\Documents\GitHub\E-squaro\E-squaro\obj\Debug\E-squaro.csproj.CoreCompileInputs.cache
+C:\Users\Michał\Documents\GitHub\E-squaro\E-squaro\obj\Debug\E-squaro.exe
+C:\Users\Michał\Documents\GitHub\E-squaro\E-squaro\obj\Debug\E-squaro.pdb

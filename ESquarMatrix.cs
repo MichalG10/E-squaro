@@ -23,7 +23,7 @@ namespace E_squaro
 
         private int NodeCounter;
 
-        public ESquarMatrix(int cols, int rows)
+        public ESquarMatrix(int rows, int cols)
         {
             this.cols = cols;
             this.rows = rows;
@@ -38,7 +38,7 @@ namespace E_squaro
             return cells;
         }
 
-        public int AddCell(CellType cellType, int col, int row)
+        public int AddCell(CellType cellType, int row, int col)
         {
             if ((col < 0 || col > cols) || (row < 0 || row > rows))
                 return -1;

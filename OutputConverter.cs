@@ -11,7 +11,7 @@ namespace E_squaro
         public ESquarMatrix es;
         public List<int> list = new List<int>();
 
-        public OutputConverter(ESquarMatrix ess, List<String> lis_str) {
+        public OutputConverter(ESquarMatrix ess, List<String> lis_str) { 
             es = ess;
             foreach(var s in lis_str)
             {
@@ -31,7 +31,7 @@ namespace E_squaro
             {
                 for(int j=0; j<col; j++)
                 {
-                    Cell cell=es.GetCell(i,j);
+                    Cell cell=es.GetCell(j,i);
                     if(i==row-1 && j==0) {
                         int a = cell.NodeA;
                         int b = cell.NodeB;
@@ -65,19 +65,16 @@ namespace E_squaro
             }
 
             int pom = 0;
-            for (int i = 0; i < row; i++)
+            bool pom_bo = false;
+            for (int i = 0; i < lis_in.Count(); i++)
             {
-                for (int j = 0; j < col; j++)
-                {
-                    pom = i + j;
-                    bool pom_bo = false;
+                    pom_bo = false;
                     foreach(var p in list)
                     {
-                        if (p == lis_in[pom]) { pom_bo = true; }
-                        list_bool.Add(pom_bo);
+                        if (p == lis_in[i]) { pom_bo = true; }
+                        
                     }
-
-                }
+                    list_bool.Add(pom_bo);
             }
 
             return list_bool;

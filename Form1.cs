@@ -598,9 +598,13 @@ namespace E_squaro
         
         void Z_Listy_Bool(List<bool> lista)
         {
+            int k = 0; ;
             for (int i = 0; i < szerokosc_esqaro + 1; i++)
                 for (int j = 0; j < szerokosc_esqaro + 1; j++)
-                    matryca_esqaro_Node[i][j] = lista[szerokosc_esqaro*i+j];
+                {
+                    matryca_esqaro_Node[i][j] = lista[k];
+                    k++;
+                }
         }
         
         //------------------------------------------------------------------------------------------------------------------------------------------
@@ -624,8 +628,8 @@ namespace E_squaro
                 rsatBuilder.RunRSatSolver();
 
                 var wynik = rsatBuilder.GetInterpretedOutput();
-                
-                if(wynik!=null)
+
+                if (wynik != null)
                 {
                     rsatBuilder.SaveOutput();
 
@@ -635,6 +639,7 @@ namespace E_squaro
 
                     Z_esqaro();
                 }
+                else MessageBox.Show("Problem jest nierozwiązywalny");
             }
             rysuj_matryce();
         }
