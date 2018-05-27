@@ -40,7 +40,7 @@ namespace E_squaro
 
         public int AddCell(CellType cellType, int col, int row)
         {
-            if ((col < 0 || col > cols) || (row < 1 || row > rows))
+            if ((col < 0 || col > cols) || (row < 0 || row > rows))
                 return -1;
 
             Cell cell = new Cell(cellType);
