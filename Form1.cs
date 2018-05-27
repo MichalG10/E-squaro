@@ -568,5 +568,10 @@ namespace E_squaro
             }
             return tablica;
         }
+
+        private void button14_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
