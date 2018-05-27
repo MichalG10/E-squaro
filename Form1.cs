@@ -455,7 +455,7 @@ namespace E_squaro
             E_squaro.CellType[][] tablica = new E_squaro.CellType[szerokosc][];
             for (int i = 0; i < szerokosc; i++)
             {
-                tablica[1] = new E_squaro.CellType[szerokosc];
+                tablica[i] = new E_squaro.CellType[szerokosc];
                 for (int j = 0; j < szerokosc; j++)
                 {
                     switch (matryca_esqaro[i][j][0])
