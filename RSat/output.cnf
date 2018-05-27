@@ -1,0 +1,9 @@
+c Rsat version 2.01
+v -1 2 0
+c 
+c 
+s SATISFIABLE
+c CNF stats: (2 vars, 2 clauses)
+c Decisions: 1
+c Conflicts: 0
+c Running time: 0.00100 seconds
