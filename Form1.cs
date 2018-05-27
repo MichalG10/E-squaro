@@ -462,7 +462,34 @@ namespace E_squaro
                     {
                         case 0:
                             {
-                                tablica[i][j] = E_squaro.CellType.KLESS0;
+                                switch (matryca_esqaro[i][j][1])
+                                {
+                                    case 0:
+                                        {
+                                            tablica[i][j] = E_squaro.CellType.KLESS0;
+                                            break;
+                                        }
+                                    case 1:
+                                        {
+                                            tablica[i][j] = E_squaro.CellType.KLESS1;
+                                            break;
+                                        }
+                                    case 2:
+                                        {
+                                            tablica[i][j] = E_squaro.CellType.K0OVER2;
+                                            break;
+                                        }
+                                    case 3:
+                                        {
+                                            tablica[i][j] = E_squaro.CellType.K0OVER3;
+                                            break;
+                                        }
+                                    case 4:
+                                        {
+                                            tablica[i][j] = E_squaro.CellType.K0OVER4;
+                                            break;
+                                        }
+                                }
                                 break;
                             }
                         case -1:
